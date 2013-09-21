@@ -1,0 +1,29 @@
+* All NOAA methods must be viewable to the user.
+* Requesting data must be very easy with minimal code.
+* Interface to retrieve data must be very simple containing only the method name, input parameters and return type. Nothing more!
+* Addition of new methods should be easy and seamless to the users usage of existing classes.
+* Method parameters must be of basic data types or core Java objects (no custom objects allowed!).
+* Method parameter types must be intuitive.
+* User should choose one of the following return types to represent the data:
+    # JSON text
+    # Simplified XML text
+    # Raw text
+    # Java Object
+    # Composite object (JSON + XML) or (JSON + Java Object) or (XML + JSON) or (XML + JSON + Java Object).
+    # Any other future requirement
+* User should have the option of choosing the NOAA Web service between:
+    # REST
+    # SOAP
+    # Any Future implementations by NOAA
+* The internal classes and methods of the class shouldn't be visible to the user.
+* The external packages used must be limited to:
+    # JSON and XML Marshalling packages
+    # Apache commons
+* The components visible to the user must be:
+    # Method names (method arguments must be of basic data types)
+    # Choice of web service
+    # Choice of return type
+* API must be fast and ideally only the network connection must limit its response speed.
+* API must efficiently use memory with no more than twice the response string size being stored in memory.
+* API must be intuitive to use.
+

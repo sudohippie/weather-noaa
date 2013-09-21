@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/noaa-weather-api.iml" filepath="$PROJECT_DIR$/noaa-weather-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/weather-noaa.iml" filepath="$PROJECT_DIR$/weather-noaa.iml" />
+    </modules>
+  </component>
+</project>
+

@@ -1,7 +1,7 @@
 package me.sudohippie.weather.method.soap;
 
+import me.sudohippie.weather.NOAAWeather;
 import me.sudohippie.weather.method.NOAAMethod;
-import me.sudohippie.weather.service.NOAAService;
 
 /**
  * Raghav Sidhanti
@@ -20,7 +20,8 @@ public class NDFDgenTest {
         method.addArgument("weatherParameters", "maxt=true");
 
         // get data
-        String data = NOAAService.getData(method);
+        NOAAWeather weather = new NOAAWeather();
+        String data = weather.query(method);
         System.out.println(data);
     }
 }

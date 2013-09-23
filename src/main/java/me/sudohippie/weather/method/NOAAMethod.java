@@ -1,14 +1,19 @@
 package me.sudohippie.weather.method;
 
-import me.sudohippie.weather.service.NOAAServiceType;
+import me.sudohippie.weather.Executable;
 
 import java.util.Map;
 
 /**
+ * A NOAA method need to be build and sent to a NOAA service, representing a query for
+ * weather data.
+ *
+ * Concrete classes define the actual behaviour of the method.
+ *
  * Raghav Sidhanti
  * 9/11/13
  */
-public abstract class NOAAMethod {
+public abstract class NOAAMethod implements Executable {
     protected final Map<String, String> arguments;
 
     public NOAAMethod() {
@@ -52,13 +57,6 @@ public abstract class NOAAMethod {
      * @param value
      */
     public abstract void addArgument(String name, String value);
-
-    /**
-     * Returns the service type against which this method will be executed.
-     *
-     * @return
-     */
-    public abstract NOAAServiceType getServiceType();
 
     /**
      * Returns a collection of arguments that are a part of this method.

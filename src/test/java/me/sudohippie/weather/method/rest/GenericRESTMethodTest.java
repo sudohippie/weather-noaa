@@ -1,7 +1,7 @@
 package me.sudohippie.weather.method.rest;
 
+import me.sudohippie.weather.NOAAWeather;
 import me.sudohippie.weather.method.NOAAMethod;
-import me.sudohippie.weather.service.NOAAService;
 
 /**
  * Raghav Sidhanti
@@ -9,6 +9,7 @@ import me.sudohippie.weather.service.NOAAService;
  */
 public class GenericRESTMethodTest {
     public static void testNDFDGen(){
+
         NOAAMethod method = new GenericRESTMethod();
         method.addArgument("lat", "47.6201");
         method.addArgument("lon", "-122.141");
@@ -18,7 +19,9 @@ public class GenericRESTMethodTest {
         method.addArgument("Unit", "e");
         method.addArgument("maxt", "maxt");
 
-        String data = NOAAService.getData(method);
+        NOAAWeather weather = new NOAAWeather();
+        String data = weather.query(method);
+
         System.out.println(data);
     }
 

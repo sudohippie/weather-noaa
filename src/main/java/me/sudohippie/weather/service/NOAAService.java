@@ -1,12 +1,15 @@
 package me.sudohippie.weather.service;
 
 import me.sudohippie.weather.method.NOAAMethod;
-import me.sudohippie.weather.service.rest.NOAARESTService;
-import me.sudohippie.weather.service.soap.NOAASOAPService;
 
 import java.util.Map;
 
 /**
+ * This class represents querying services provided by NOAA.
+ *
+ * The actual implementation of a particular service is defined by
+ * a concrete class.
+ *
  * Raghav Sidhanti
  * 9/11/13
  */
@@ -20,35 +23,23 @@ public abstract class NOAAService {
      * @param method
      * @return
      */
-    public static String getData(NOAAMethod method){
+    public String getData(NOAAMethod method){
         // validate method
         method.assertMethodValidity();
 
         // make a call and get xml content
-        NOAAService service = newInstance(method.getServiceType());
-        String textResponse = service.getData(method.getMethodName(), method.getArguments());
+        String textResponse = getData(method.getMethodName(), method.getArguments());
 
         if(textResponse != null) return textResponse;
         else return "";
     }
 
     /**
-     * Retrieves data the appropriate NOAA service as represented by the concrete class.
+     * Retrieves data from the appropriate NOAA service as represented by the concrete class.
      *
      * @param methodName
      * @param params
      * @return
      */
     protected abstract String getData(String methodName, Map<String, String> params);
-
-    private static NOAAService newInstance(NOAAServiceType type){
-        switch (type){
-            case REST:
-                return new NOAARESTService();
-            case SOAP:
-                return new NOAASOAPService();
-            default:
-                return null;
-        }
-    }
 }

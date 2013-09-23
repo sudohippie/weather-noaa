@@ -1,7 +1,8 @@
 package me.sudohippie.weather.method.rest;
 
 import me.sudohippie.weather.method.NOAAMethod;
-import me.sudohippie.weather.service.NOAAServiceType;
+import me.sudohippie.weather.service.NOAAService;
+import me.sudohippie.weather.service.rest.NOAARESTService;
 import me.sudohippie.weather.util.Assert;
 
 import java.util.Iterator;
@@ -13,6 +14,9 @@ import java.util.TreeMap;
  * 9/20/13
  */
 public abstract class NOAARESTMethod extends NOAAMethod {
+
+    private final NOAAService service = new NOAARESTService();
+
     @Override
     public void assertMethodValidity() {
         Iterator<String> keyIter = arguments.keySet().iterator();
@@ -37,12 +41,12 @@ public abstract class NOAARESTMethod extends NOAAMethod {
     }
 
     @Override
-    public NOAAServiceType getServiceType() {
-        return  NOAAServiceType.REST;
+    protected Map<String, String> getArgumentsTemplate() {
+        return new TreeMap<String, String>();
     }
 
     @Override
-    protected Map<String, String> getArgumentsTemplate() {
-        return new TreeMap<String, String>();
+    public String executeAndReturnData() {
+        return service.getData(this);
     }
 }

@@ -1,7 +1,8 @@
 package me.sudohippie.weather.method.soap;
 
 import me.sudohippie.weather.method.NOAAMethod;
-import me.sudohippie.weather.service.NOAAServiceType;
+import me.sudohippie.weather.service.NOAAService;
+import me.sudohippie.weather.service.soap.NOAASOAPService;
 import me.sudohippie.weather.util.Assert;
 
 import java.util.Arrays;
@@ -15,12 +16,9 @@ import java.util.Map;
  */
 public abstract class NOAASOAPMethod extends NOAAMethod {
 
-    @Override
-    public NOAAServiceType getServiceType() {
-        return  NOAAServiceType.SOAP;
-    }
+    private final NOAAService service = new NOAASOAPService();
 
-    @Override
+   @Override
     public void assertMethodValidity() {
         String[] orderedArgumentNames = getOrderedArgumentNames();
         int index = 0;
@@ -66,6 +64,11 @@ public abstract class NOAASOAPMethod extends NOAAMethod {
 
         // if all okay, insert to map
         arguments.put(name, value);
+    }
+
+    @Override
+    public String executeAndReturnData() {
+        return service.getData(this);
     }
 
     /**

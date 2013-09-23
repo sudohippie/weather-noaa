@@ -1,5 +1,7 @@
 package me.sudohippie.weather;
 
+import me.sudohippie.weather.exception.NOAACommunicationException;
+
 /**
  * This class represents the main entry point in to the NOAA system.
  *
@@ -15,10 +17,12 @@ public class NOAAWeather {
      * method will search the NOAA weather system and return data
      * as a String.
      *
-     * @param executable
-     * @return
+     * @param executable A executable object which contains the request and NOAA service configuration.
+     * @return String representation of NOAA's data for the specified request.
+     * @exception NOAACommunicationException is thrown when there was a problem while connecting to
+     *              the NOAA service.
      */
-    public String query(Executable executable){
+    public String query(Executable executable) throws NOAACommunicationException {
         return executable.executeAndReturnData();
     }
 }

@@ -1,6 +1,7 @@
 package me.sudohippie.weather.method.soap;
 
 import me.sudohippie.weather.NOAAWeather;
+import me.sudohippie.weather.exception.NOAACommunicationException;
 import me.sudohippie.weather.method.NOAAMethod;
 
 /**
@@ -8,7 +9,7 @@ import me.sudohippie.weather.method.NOAAMethod;
  * 9/20/13
  */
 public class LatLonListCityNamesTest {
-    public static void main(String[] args){
+    public static void main(String[] args) throws NOAACommunicationException {
         NOAAMethod method = new LatLonListCityNames();
         method.addArgument("displayLevel", "1");
 

@@ -1,6 +1,7 @@
 package me.sudohippie.weather.method.soap;
 
 import me.sudohippie.weather.NOAAWeather;
+import me.sudohippie.weather.exception.NOAACommunicationException;
 import me.sudohippie.weather.method.NOAAMethod;
 
 /**
@@ -8,7 +9,7 @@ import me.sudohippie.weather.method.NOAAMethod;
  * 9/20/13
  */
 public class LatLonListZipCodeTest {
-    public static void main(String[] args){
+    public static void main(String[] args) throws NOAACommunicationException {
         // construct method
         NOAAMethod method = new LatLonListZipCode();
         method.addArgument("zipCodeList", "98007");

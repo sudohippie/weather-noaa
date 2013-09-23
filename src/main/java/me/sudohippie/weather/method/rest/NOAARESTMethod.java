@@ -1,7 +1,7 @@
 package me.sudohippie.weather.method.rest;
 
+import me.sudohippie.weather.exception.NOAACommunicationException;
 import me.sudohippie.weather.method.NOAAMethod;
-import me.sudohippie.weather.service.NOAAService;
 import me.sudohippie.weather.service.rest.NOAARESTService;
 import me.sudohippie.weather.util.Assert;
 
@@ -15,7 +15,7 @@ import java.util.TreeMap;
  */
 public abstract class NOAARESTMethod extends NOAAMethod {
 
-    private final NOAAService service = new NOAARESTService();
+    private NOAARESTService service = new NOAARESTService();
 
     @Override
     public void assertMethodValidity() {
@@ -46,7 +46,24 @@ public abstract class NOAARESTMethod extends NOAAMethod {
     }
 
     @Override
-    public String executeAndReturnData() {
+    public String executeAndReturnData() throws NOAACommunicationException {
         return service.getData(this);
+    }
+
+    /**
+     * This NOAA method has a default REST service assigned to it, this may be overridden via this setter method.
+     * @param service
+     */
+    public void setService(NOAARESTService service) {
+        this.service = service;
+    }
+
+    /**
+     * Returns the service to which this method will make a request to.
+     *
+     * @return
+     */
+    public NOAARESTService getService() {
+        return service;
     }
 }

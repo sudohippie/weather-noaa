@@ -1,5 +1,7 @@
 package me.sudohippie.weather;
 
+import me.sudohippie.weather.exception.NOAACommunicationException;
+
 /**
  * Any class implementing this interface can be executed to search for data
  * on a NOAA service.
@@ -15,5 +17,5 @@ public interface Executable {
      *
      * @return
      */
-    public String executeAndReturnData();
+    public String executeAndReturnData() throws NOAACommunicationException;
 }

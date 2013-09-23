@@ -1,6 +1,6 @@
 package me.sudohippie.weather.service.soap;
 
-import org.w3c.dom.*;
+import org.w3c.dom.Element;
 
 import javax.xml.soap.*;
 import java.io.ByteArrayOutputStream;

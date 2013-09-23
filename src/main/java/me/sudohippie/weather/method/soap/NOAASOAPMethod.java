@@ -1,7 +1,7 @@
 package me.sudohippie.weather.method.soap;
 
+import me.sudohippie.weather.exception.NOAACommunicationException;
 import me.sudohippie.weather.method.NOAAMethod;
-import me.sudohippie.weather.service.NOAAService;
 import me.sudohippie.weather.service.soap.NOAASOAPService;
 import me.sudohippie.weather.util.Assert;
 
@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public abstract class NOAASOAPMethod extends NOAAMethod {
 
-    private final NOAAService service = new NOAASOAPService();
+    private NOAASOAPService service = new NOAASOAPService();
 
    @Override
     public void assertMethodValidity() {
@@ -67,8 +67,25 @@ public abstract class NOAASOAPMethod extends NOAAMethod {
     }
 
     @Override
-    public String executeAndReturnData() {
+    public String executeAndReturnData() throws NOAACommunicationException {
         return service.getData(this);
+    }
+
+    /**
+     * This NOAA method has a default SOAP service assigned to it, this may be overridden via this setter method.
+     * @param service
+     */
+    public void setService(NOAASOAPService service) {
+        this.service = service;
+    }
+
+    /**
+     * Returns the service to which this method will make a request to.
+     *
+     * @return
+     */
+    public NOAASOAPService getService() {
+        return service;
     }
 
     /**

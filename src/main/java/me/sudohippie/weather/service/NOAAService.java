@@ -1,5 +1,6 @@
 package me.sudohippie.weather.service;
 
+import me.sudohippie.weather.exception.NOAACommunicationException;
 import me.sudohippie.weather.method.NOAAMethod;
 
 import java.util.Map;
@@ -21,9 +22,11 @@ public abstract class NOAAService {
      * service and return a String representation of the data.
      *
      * @param method
-     * @return
+     * @return String representation of the data provided by NOAA for the specified request.
+     * @exception NOAACommunicationException is thrown when there was problem
+     *              while establishing a connection with NOAA's services
      */
-    public String getData(NOAAMethod method){
+    public String getData(NOAAMethod method) throws NOAACommunicationException {
         // validate method
         method.assertMethodValidity();
 
@@ -41,5 +44,5 @@ public abstract class NOAAService {
      * @param params
      * @return
      */
-    protected abstract String getData(String methodName, Map<String, String> params);
+    protected abstract String getData(String methodName, Map<String, String> params) throws NOAACommunicationException;
 }

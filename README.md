@@ -1,4 +1,4 @@
-"!https://travis-ci.org/sudohippie/weather-noaa.png!":https://travis-ci.org/sudohippie/weather-noaa
+[![Build Status](https://travis-ci.org/sudohippie/weather-noaa.png)](https://travis-ci.org/sudohippie/weather-noaa)
 
 ## Overview
 

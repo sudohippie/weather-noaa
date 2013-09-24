@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/sudohippie/weather-noaa.png)](https://travis-ci.org/sudohippie/weather-noaa)
+# NOAA Weather API [![Build Status](https://travis-ci.org/sudohippie/weather-noaa.png)](https://travis-ci.org/sudohippie/weather-noaa)
 
 ## Overview
 

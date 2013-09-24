@@ -1,3 +1,5 @@
+"!https://travis-ci.org/sudohippie/weather-noaa.png!":https://travis-ci.org/sudohippie/weather-noaa
+
 ## Overview
 
 This API enables access to NOAA's weather data in an object oriented way using Java. Currently NOAA exposes two types of web services to access weather data, namely REST and SOAP. This project enables access to NOAA weather data via both these web services.

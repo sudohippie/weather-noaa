@@ -8,6 +8,8 @@ package me.sudohippie.weather.exception;
  * 9/23/13
  */
 public class NOAACommunicationException extends Exception {
+    private static final long serialVersionUID = 1L;
+
     public NOAACommunicationException(String s){
         super(s);
     }

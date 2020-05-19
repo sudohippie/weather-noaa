@@ -44,3 +44,5 @@ Thumbs.db
 # Apache Maven #
 ################
 target/
+/.classpath
+/.project

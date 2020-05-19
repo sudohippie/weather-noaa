@@ -21,4 +21,11 @@
         </plugins>
     </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax.xml.soap</groupId>
+            <artifactId>javax.xml.soap-api</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+    </dependencies>
 </project>
